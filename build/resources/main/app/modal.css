@@ -1,0 +1,9 @@
+.list-view{
+     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+     -fx-background-insets: 0px;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
+}
+.list-view .list-cell:filled:selected:focused, .list-cell:filled:selected {
+  -fx-background-color: #e4f1fe;
+  -fx-text-fill: blue;
+}
