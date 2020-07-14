@@ -1,5 +1,5 @@
 <p align="center">
-<img src="img.png" height="260px" >
+<img src="screenshots/img.png" height="260px" >
 </p>
 
 
@@ -41,7 +41,7 @@ Une fois que vous l'avez cloné ou téléchargé et décompressé,
 5. **Et voilà!!**
 
 <p align="center">
-<img src="ss9.png" height="480px" >
+<img src="screenshots/ss9.png" height="480px" >
 </p>
 
 [cloner]: https://help.github.com/articles/cloning-a-repository/
