@@ -4,12 +4,12 @@
 
 
 
-# Essayer la démo
+# Configuration du système, paramétrage et exécution de l'application
 Vous pouvez essayer l'application par vous-même!
 
 pour ce faire,
 
-1.  Vous devrez d'abord **[cloner]** ou **[télécharger] et décompresser** le [dépositaire de l'application].
+1.  Vous devrez d'abord **[cloner]** ou **[télécharger] et décompresser** le dépositaire de l'application.
 
 Une fois que vous l'avez cloné ou téléchargé et décompressé,
 
