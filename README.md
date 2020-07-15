@@ -45,6 +45,12 @@ pour ce faire,
     <p align="center">
     <img src="screenshots/ss12.png" height="480px" >
     </p>
+    
+
+
+
+
+Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 [cloner]: https://help.github.com/articles/cloning-a-repository/
 [télécharger]: https://github.com/h3t1/agp/archive/master.zip
