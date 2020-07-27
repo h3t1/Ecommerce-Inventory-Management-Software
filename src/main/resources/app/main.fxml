@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="526.0" minWidth="926.0" prefHeight="526.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.Main">
+   <center>
+      <StackPane fx:id="rootPane" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane fx:id="settingsGP" style="-fx-background-color: white;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" maxWidth="553.9999593098958" minWidth="10.0" prefWidth="498.33331298828125" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="573.3333435058594" minWidth="10.0" prefWidth="217.00002034505212" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="225.33334350585938" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <GridPane style="-fx-border-color: gray; -fx-border-radius: 3px;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" maxWidth="164.33331298828125" minWidth="10.0" prefWidth="155.6666259765625" />
+                      <ColumnConstraints hgrow="NEVER" maxWidth="163.33337402343753" minWidth="10.0" prefWidth="140.00000000000003" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="33.333343505859375" minHeight="0.0" prefHeight="0.6666717529296893" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.33332824707032" minHeight="10.0" prefHeight="37.999989827473954" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="54.666676839192704" minHeight="10.0" prefHeight="38.00000508626303" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="51.66666158040363" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="49.33333333333334" minHeight="10.0" prefHeight="49.33333333333334" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <JFXTextField fx:id="host" labelFloat="true" maxWidth="160.0" prefWidth="160.0" promptText="Host" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="port" labelFloat="true" maxWidth="80.0" prefWidth="80.0" promptText="Port" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="user" labelFloat="true" maxWidth="160.0" prefWidth="160.0" promptText="Username" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="password" labelFloat="true" maxWidth="160.0" prefWidth="160.0" promptText="Password" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXToggleButton fx:id="useSSL" size="9.0" text="useSSL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets bottom="-16.0" left="-8.0" top="-16.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXToggleButton>
+                        <JFXTextField fx:id="db" labelFloat="true" maxWidth="160.0" prefWidth="160.0" promptText="Database name" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXButton buttonType="RAISED" onAction="#testDBC" prefWidth="120.0" style="-fx-background-color: white;" text="Test connection" textFill="#2a37c1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" prefWidth="120.0" style="-fx-background-color: white;" text="Reset" textFill="#2a37c1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#testDBC" prefWidth="120.0" style="-fx-background-color: white;" text="Apply" textFill="#2a37c1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets left="8.0" right="8.0" />
+                           </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <Label text="Database connection" textFill="#1d6e80" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <JFXProgressBar fx:id="pb" prefHeight="3.0" prefWidth="444.0" visible="false" GridPane.columnSpan="2147483647">
+                           <GridPane.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </JFXProgressBar>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <GridPane fx:id="settingsGP1" style="-fx-background-color: white;" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" maxWidth="553.9999593098958" minWidth="10.0" prefWidth="498.33331298828125" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="225.33334350585938" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane style="-fx-border-color: #4b77be; -fx-border-radius: 3px;" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton buttonType="RAISED" onAction="#changePassword" prefWidth="120.0" style="-fx-background-color: white;" text="Change password" textFill="#2a37c1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <Label text="Account settings" textFill="#1d6e80">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="userName" text="Username: admin" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="userEmail" text="Email: admin@agp.test" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="userLL" text="Last time logged: 14, July 2020 02:31" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <JFXPasswordField fx:id="password1" maxWidth="160.0" promptText="New password" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                              </JFXPasswordField>
+                              <JFXPasswordField fx:id="password2" maxWidth="160.0" promptText="Retype new password" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="8.0" right="8.0" />
+                                 </GridPane.margin>
+                              </JFXPasswordField>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <GridPane style="-fx-border-radius: 3px; -fx-border-color: #2a37c1;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowSpan="2147483647" GridPane.vgrow="NEVER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                      <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Operating System:" textFill="#2a37c1">
+                           <GridPane.margin>
+                              <Insets left="8.0" />
+                           </GridPane.margin></Label>
+                        <Label text="Architecture" textFill="#2a37c1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="8.0" />
+                           </GridPane.margin></Label>
+                        <Label text="Current PID" textFill="#2a37c1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="8.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Local IP address" textFill="#2a37c1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="8.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="os" alignment="CENTER" contentDisplay="CENTER" text="os" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="arch" alignment="CENTER" contentDisplay="CENTER" text="arch" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="pid" alignment="CENTER" contentDisplay="CENTER" text="pid" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="ip" alignment="CENTER" contentDisplay="CENTER" text="192.168.X.Y" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <JFXButton buttonType="RAISED" onAction="#checkInternet" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: white;" text="Test internet connectivity " textFill="#2a37c1" GridPane.rowIndex="8">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets left="8.0" />
+                           </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <Label fx:id="internet" alignment="CENTER" contentDisplay="CENTER" text="UP" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="dashboardGP" style="-fx-background-color: #e8ecf1;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.99996948242188" minWidth="10.0" prefWidth="206.99996948242188" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.33333333333334" minWidth="10.0" prefWidth="132.33333333333334" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.00000000000006" minWidth="10.0" prefWidth="183.66666666666669" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.33331298828125" minWidth="10.0" prefWidth="181.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="48.0" valignment="CENTER" vgrow="NEVER" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXButton buttonType="RAISED" prefHeight="120.0" style="-fx-background-color: #eee;" text="Top active clients" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="120.0" style="-fx-background-color: #eee;" text="Most buyed products" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="120.0" style="-fx-background-color: #eee;" text="Geographic distribution of sales">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="120.0" style="-fx-background-color: #eee;" text="Top 10 most buyed products" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <BarChart fx:id="barChartTac" title="Top active clients" BorderPane.alignment="CENTER">
+                                <xAxis>
+                                  <CategoryAxis label="Best buyers" side="BOTTOM" fx:id="xclients" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="ySpending" label="Spending in DH" side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="orderLinesGP" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #e8ecf1;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="1200.0" minHeight="200.0" prefHeight="326.6666666666667" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <JFXTreeTableView fx:id="orderlines_table" fixedCellSize="0.0" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <columns>
+                        <TreeTableColumn fx:id="idOrderCol2" prefWidth="-1.0" text="Id order" />
+                        <TreeTableColumn fx:id="idProductCol2" prefWidth="-1.0" text="Id product" />
+                        <TreeTableColumn fx:id="quantityCol" prefWidth="-1.0" text="Quantity" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" />
+                     </GridPane.margin>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </JFXTreeTableView>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#editOrder" style="-fx-background-color: white;" text="Edit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-edit-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#deleteOrder" style="-fx-background-color: white;" text="Delete" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-delete-document-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#addOrder" style="-fx-background-color: white;" text="New" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-add-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <MenuButton mnemonicParsing="false" text="Export..." GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToCSV" text="Export to CSV">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-csv-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToHTML" text="Export to HTML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-html-5-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToPDF" text="Export to PDF">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-pdf-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXLSX" text="Export to XLSX">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xls-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXML" text="Export to XML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xml-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-export-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </MenuButton>
+               </children>
+            </GridPane>
+            <GridPane fx:id="productsGP" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #e8ecf1;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="1200.0" minHeight="200.0" prefHeight="326.6666666666667" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <JFXTreeTableView fx:id="products_table" tableMenuButtonVisible="true" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <columns>
+                        <TreeTableColumn fx:id="idProductCol" prefWidth="46.666656494140625" text="Id product" />
+                        <TreeTableColumn fx:id="categoryCol" prefWidth="88.0" text="Category" />
+                        <TreeTableColumn fx:id="productNameCol" prefWidth="90.66668701171875" text="Product name" />
+                        <TreeTableColumn fx:id="descriptionCol" prefWidth="102.0" text="Description" />
+                        <TreeTableColumn fx:id="costCol" prefWidth="99.33331298828125" text="Manufucturing cost" />
+                        <TreeTableColumn fx:id="priceCol" prefWidth="104.0" text="Price" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" />
+                     </GridPane.margin>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </JFXTreeTableView>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#editOrder" style="-fx-background-color: white;" text="Edit" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-edit-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#deleteOrder" style="-fx-background-color: white;" text="Delete" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-delete-document-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#addOrder" style="-fx-background-color: white;" text="New">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-add-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <MenuButton mnemonicParsing="false" text="Export..." GridPane.columnIndex="3">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToCSV" text="Export to CSV">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-csv-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToHTML" text="Export to HTML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-html-5-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToPDF" text="Export to PDF">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-pdf-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXLSX" text="Export to XLSX">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xls-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXML" text="Export to XML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xml-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-export-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </MenuButton>
+               </children>
+            </GridPane>
+            <GridPane fx:id="clientsGP" style="-fx-background-color: #e8ecf1;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="121.33331298828125" minWidth="10.0" prefWidth="121.33331298828125" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="1200.0" minHeight="200.0" prefHeight="326.6666666666667" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <JFXTreeTableView fx:id="clients_table" tableMenuButtonVisible="true" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <columns>
+                        <TreeTableColumn fx:id="idCol" prefWidth="46.666656494140625" text="Id" />
+                        <TreeTableColumn fx:id="usernameCol" prefWidth="88.0" text="Username" />
+                        <TreeTableColumn fx:id="emailCol" prefWidth="90.66668701171875" text="Email" />
+                        <TreeTableColumn fx:id="telCol" prefWidth="102.0" text="Tel" />
+                        <TreeTableColumn fx:id="fullNameCol" prefWidth="99.33331298828125" text="Full name" />
+                        <TreeTableColumn fx:id="cityCol" prefWidth="104.0" text="City" />
+                        <TreeTableColumn fx:id="addressCol" prefWidth="122.33331298828125" text="Address" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" />
+                     </GridPane.margin>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </JFXTreeTableView>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#editClient" style="-fx-background-color: white;" text="Edit" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-edit-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#deleteClient" style="-fx-background-color: white;" text="Delete" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-delete-document-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#addClient" style="-fx-background-color: white;" text="New">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-add-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <MenuButton mnemonicParsing="false" prefWidth="117.0" text="Export..." GridPane.columnIndex="3">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToCSV" text="Export to CSV">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-csv-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToHTML" text="Export to HTML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-html-5-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToPDF" text="Export to PDF">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-pdf-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXLSX" text="Export to XLSX">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xls-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXML" text="Export to XML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xml-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-export-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="8.0" />
+                     </GridPane.margin>
+                  </MenuButton>
+               </children>
+            </GridPane>
+            <GridPane fx:id="ordersGP" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #e8ecf1;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="120.0" minWidth="10.0" prefWidth="118.66668701171875" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="64.0" minHeight="64.0" prefHeight="64.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="1200.0" minHeight="200.0" prefHeight="326.6666666666667" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <JFXTreeTableView fx:id="orders_table" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <columns>
+                        <TreeTableColumn fx:id="idOrderCol" prefWidth="-1.0" text="Id order" />
+                        <TreeTableColumn fx:id="idClientCol" prefWidth="-1.0" text="Id client" />
+                        <TreeTableColumn fx:id="dateCol" prefWidth="-1.0" text="Date" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" />
+                     </GridPane.margin>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </JFXTreeTableView>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#editOrder" style="-fx-background-color: white;" text="Edit" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-edit-property-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#deleteOrder" style="-fx-background-color: white;" text="Delete" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-delete-document-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" defaultButton="true" onAction="#addOrder" style="-fx-background-color: white;" text="New">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@img/icons8-add-property-64.png" />
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <MenuButton mnemonicParsing="false" text="Export..." GridPane.columnIndex="3">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToCSV" text="Export to CSV">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-csv-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToHTML" text="Export to HTML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-html-5-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToPDF" text="Export to PDF">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-pdf-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXLSX" text="Export to XLSX">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xls-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#exportToXML" text="Export to XML">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icons8-xml-40.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-export-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </MenuButton>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" nodeOrientation="INHERIT" onMouseClicked="#getOrders" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets left="12.0" right="12.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@img/icons8-synchronize-40.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children></StackPane>
+   </center>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <JFXTextField fx:id="filterField" maxWidth="220.0" prefWidth="220.0" promptText="Search" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="10.0" right="8.0" top="8.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label fx:id="nor" GridPane.columnSpan="2">
+               <padding>
+                  <Insets left="8.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </GridPane.margin>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="3">
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#setGP" prefHeight="32.0" style="-fx-background-color: #3a539b;" text="Settings" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="32.0" style="-fx-background-color: #f64747;" text="Log out" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </top>
+   <left>
+      <BorderPane prefHeight="414.0" prefWidth="210.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <bottom>
+            <JFXButton alignment="BASELINE_LEFT" prefHeight="56.0" prefWidth="210.0" text="À propos" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-help-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </bottom>
+         <top>
+            <JFXButton alignment="BASELINE_LEFT" defaultButton="true" onAction="#setGP" prefHeight="56.0" prefWidth="210.0" text="Dashboard" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-graph-report-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </top>
+         <center>
+            <Pane prefHeight="24.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="12.0" layoutY="27.0" prefHeight="32.0" prefWidth="198.0" style="-fx-font-weight: bold;" text="Update data tables" />
+                  <JFXButton alignment="BASELINE_LEFT" layoutY="59.0" onAction="#setGP" prefHeight="56.0" prefWidth="210.0" text="Clients" textFill="#d24d57">
+                     <graphic>
+                        <ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-resume-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutY="115.0" onAction="#setGP" prefHeight="56.0" prefWidth="210.0" text="Orders" textFill="#d24d57">
+                     <graphic>
+                        <ImageView fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-purchase-order-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutY="171.0" onAction="#setGP" prefHeight="56.0" prefWidth="210.0" text="Order lines" textFill="#d24d57">
+                     <graphic>
+                        <ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-check-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutY="227.0" onAction="#setGP" prefHeight="56.0" prefWidth="210.0" text="Products" textFill="#d24d57">
+                     <graphic>
+                        <ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-stocks-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </left>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="date" text="date" textFill="#185cb4" wrapText="true">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.Login">
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="360.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+          <Text layoutX="60.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authentification">
+              <font>
+                  <Font size="20.0" />
+              </font>
+          </Text>
+          <JFXTextField fx:id="username" labelFloat="true" layoutX="60.0" layoutY="217.0" prefHeight="25.0" prefWidth="240.0" promptText="Identifiant" />
+          <JFXPasswordField fx:id="password" labelFloat="true" layoutX="60.0" layoutY="262.0" prefHeight="25.0" prefWidth="240.0" promptText="Mot de passe" />
+          <Hyperlink accessibleHelp="Cliquez ici pour réinitialiser votre mot de passe" accessibleRoleDescription="cliquez ici pour réinitialiser votre mot de passe" accessibleText="cliquez ici pour réinitialiser votre mot de passe" layoutX="60.0" layoutY="287.0" text="Mot de passe oublié?" underline="true" />
+          <JFXProgressBar fx:id="pb" layoutX="60.0" layoutY="197.0" prefHeight="3.0" prefWidth="240.0" visible="false" />
+         <ImageView fitWidth="152.0" layoutX="104.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/connected_world_wuay.png" />
+            </image>
+         </ImageView>
+          <JFXButton fx:id="login" layoutX="60.0" layoutY="337.0" onAction="#switchToMainApp" style="-fx-background-color: #446cb3;" text="Se connecter" textFill="WHITE">
+              <font>
+                  <Font size="16.0" />
+              </font>
+              <cursor>
+                  <Cursor fx:constant="HAND" />
+              </cursor>
+          </JFXButton>
+      </Pane>
+   </center>
+</BorderPane>

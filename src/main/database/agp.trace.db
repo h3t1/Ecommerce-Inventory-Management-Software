@@ -1,0 +1,587 @@
+2020-07-10 01:39:42 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:309)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:289)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:785)
+	at org.h2.server.web.WebApp.login(WebApp.java:1008)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:173)
+	at org.h2.server.web.WebThread.process(WebThread.java:139)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 21 more
+2020-07-10 01:42:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                                     
+CREATE DATABASE[*] IF NOT EXISTS `AGP`                                       "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, SYNONYM, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+-- Dumping database structure for agp
+CREATE DATABASE IF NOT EXISTS `agp` /*!40100 DEFAULT CHARACTER SET utf8 */ [42001-200]
+2020-07-10 01:42:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Schema "AGP" not found; SQL statement:
+USE `agp` [90079-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.engine.Database.getSchema(Database.java:1936)
+	at org.h2.command.dml.Set.update(Set.java:466)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-10 01:42:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "                                        
+CREATE TABLE IF NOT EXISTS `USERS` (
+  `ID` INT(11) NOT NULL,
+  `USERNAME` VARCHAR(32) DEFAULT NULL,
+  `PASSWORD` VARCHAR(64) DEFAULT NULL,
+  `EMAIL` VARCHAR(64) DEFAULT NULL,
+  `LAST_LOGIN` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `PRIV` TINYINT(4) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=[*]INNODB DEFAULT CHARSET=UTF8"; expected "identifier"; SQL statement:
+-- Dumping structure for table agp.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(32) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `priv` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 [42001-200]
+2020-07-10 01:42:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+-- Dumping data for table agp.users: ~3 rows (approximately)
+DELETE FROM `users` [42102-200]
+2020-07-10 01:42:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `last_login`, `priv`) VALUES
+	(1, 'hamza', 'hamza;', 'hamza.talaghzi@gmail.com', '2020-07-01 20:30:17', 1),
+	(2, 'admin', 'admin123', 'admin@test.com', '2020-07-01 20:32:09', 1),
+	(3, 'agent', 'agent123', 'agent@agp.com', '2020-07-09 06:02:48', 0) [42102-200]
+2020-07-10 01:44:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS `USERS` (
+  `ID` INT(11) NOT NULL,
+  `USERNAME` VARCHAR(32) DEFAULT NULL,
+  `PASSWORD` VARCHAR(64) DEFAULT NULL,
+  `EMAIL` VARCHAR(64) DEFAULT NULL,
+  `LAST_LOGIN` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `PRIV` TINYINT(4) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+)  DEFAULT[*] CHARSET=UTF8"; SQL statement:
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(32) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `priv` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)  DEFAULT CHARSET=utf8 [42000-200]
+2020-07-10 01:44:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `last_login`, `priv`) VALUES
+	(1, 'hamza', 'hamza;', 'hamza.talaghzi@gmail.com', '2020-07-01 20:30:17', 1),
+	(2, 'admin', 'admin123', 'admin@test.com', '2020-07-01 20:32:09', 1),
+	(3, 'agent', 'agent123', 'agent@agp.com', '2020-07-09 06:02:48', 0) [42102-200]
+2020-07-10 01:44:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE  `USERS` (
+  `ID` INT(11) NOT NULL,
+  `USERNAME` VARCHAR(32) DEFAULT NULL,
+  `PASSWORD` VARCHAR(64) DEFAULT NULL,
+  `EMAIL` VARCHAR(64) DEFAULT NULL,
+  `LAST_LOGIN` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `PRIV` TINYINT(4) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+)  DEFAULT[*] CHARSET=UTF8"; SQL statement:
+CREATE TABLE  `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(32) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `priv` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)  DEFAULT CHARSET=utf8 [42000-200]
+2020-07-10 01:44:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `last_login`, `priv`) VALUES
+	(1, 'hamza', 'hamza;', 'hamza.talaghzi@gmail.com', '2020-07-01 20:30:17', 1),
+	(2, 'admin', 'admin123', 'admin@test.com', '2020-07-01 20:32:09', 1),
+	(3, 'agent', 'agent123', 'agent@agp.com', '2020-07-09 06:02:48', 0) [42102-200]
+2020-07-10 01:47:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ""users"" (
+  ""id"" INT NOT NULL,
+  ""username"" VARCHAR(32) NULL DEFAULT NULL,
+  ""password"" VARCHAR(64) NULL DEFAULT NULL,
+  ""email"" VARCHAR(64) NULL DEFAULT NULL,
+  ""last_login"" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ""priv"" TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (""id"")
+)
+DEFAULT[*] CHARSET UTF8"; SQL statement:
+create table "users" (
+  "id" int not null,
+  "username" varchar(32) null default null,
+  "password" varchar(64) null default null,
+  "email" varchar(64) null default null,
+  "last_login" timestamp not null default current_timestamp,
+  "priv" tinyint null default null,
+  primary key ("id")
+)
+default charset UTF8 [42000-200]
+2020-07-10 01:47:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "users" not found; SQL statement:
+insert into "users" (
+  "id",
+  "username",
+  "password",
+  "email",
+  "last_login",
+  "priv"
+)
+values (
+  1, 
+  'hamza', 
+  'hamza;', 
+  'hamza.talaghzi@gmail.com', 
+  '2020-07-01 20:30:17', 
+  1
+), (
+  2, 
+  'admin', 
+  'admin123', 
+  'admin@test.com', 
+  '2020-07-01 20:32:09', 
+  1
+), (
+  3, 
+  'agent', 
+  'agent123', 
+  'agent@agp.com', 
+  '2020-07-09 06:02:48', 
+  0
+) [42102-200]
+2020-07-10 01:47:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (
+  ""id"" INT NOT NULL,
+  ""username"" VARCHAR(32) NULL DEFAULT NULL,
+  ""password"" VARCHAR(64) NULL DEFAULT NULL,
+  ""email"" VARCHAR(64) NULL DEFAULT NULL,
+  ""last_login"" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ""priv"" TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (""id"")
+)
+DEFAULT[*] CHARSET UTF8"; SQL statement:
+create table users (
+  "id" int not null,
+  "username" varchar(32) null default null,
+  "password" varchar(64) null default null,
+  "email" varchar(64) null default null,
+  "last_login" timestamp not null default current_timestamp,
+  "priv" tinyint null default null,
+  primary key ("id")
+)
+default charset UTF8 [42000-200]
+2020-07-10 01:47:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "users" not found; SQL statement:
+insert into "users" (
+  "id",
+  "username",
+  "password",
+  "email",
+  "last_login",
+  "priv"
+)
+values (
+  1, 
+  'hamza', 
+  'hamza;', 
+  'hamza.talaghzi@gmail.com', 
+  '2020-07-01 20:30:17', 
+  1
+), (
+  2, 
+  'admin', 
+  'admin123', 
+  'admin@test.com', 
+  '2020-07-01 20:32:09', 
+  1
+), (
+  3, 
+  'agent', 
+  'agent123', 
+  'agent@agp.com', 
+  '2020-07-09 06:02:48', 
+  0
+) [42102-200]
+2020-07-10 01:51:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS (
+  ID INT NOT NULL,
+USERNAME VARCHAR(32) NULL DEFAULT NULL,
+PASSWORD VARCHAR(64) NULL DEFAULT NULL,
+EMAIL VARCHAR(64) NULL DEFAULT NULL,
+LAST_LOGIN TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIV TINYINT NULL DEFAULT NULL,
+  PRIMARY KEY (""id"")
+)
+DEFAULT[*] CHARSET UTF8"; SQL statement:
+create table users (
+  id int not null,
+username varchar(32) null default null,
+password varchar(64) null default null,
+email varchar(64) null default null,
+last_login timestamp not null default current_timestamp,
+priv tinyint null default null,
+  primary key ("id")
+)
+default charset UTF8 [42000-200]
+2020-07-10 01:51:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "users" not found; SQL statement:
+insert into "users" (
+  "id",
+  "username",
+  "password",
+  "email",
+  "last_login",
+  "priv"
+)
+values (
+  1, 
+  'hamza', 
+  'hamza;', 
+  'hamza.talaghzi@gmail.com', 
+  '2020-07-01 20:30:17', 
+  1
+), (
+  2, 
+  'admin', 
+  'admin123', 
+  'admin@test.com', 
+  '2020-07-01 20:32:09', 
+  1
+), (
+  3, 
+  'agent', 
+  'agent123', 
+  'agent@agp.com', 
+  '2020-07-09 06:02:48', 
+  0
+) [42102-200]
+2020-07-10 01:53:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "id" not found; SQL statement:
+create table users (
+id int not null,
+username varchar(32) null default null,
+password varchar(64) null default null,
+email varchar(64) null default null,
+last_login timestamp not null default current_timestamp,
+priv tinyint null default null,
+  primary key ("id")
+) [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:115)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:123)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-10 01:53:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DEFAULT[*] CHARSET UTF8"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+default charset UTF8 [42001-200]
+2020-07-10 01:53:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "users" not found; SQL statement:
+insert into "users" (
+  "id",
+  "username",
+  "password",
+  "email",
+  "last_login",
+  "priv"
+)
+values (
+  1, 
+  'hamza', 
+  'hamza;', 
+  'hamza.talaghzi@gmail.com', 
+  '2020-07-01 20:30:17', 
+  1
+), (
+  2, 
+  'admin', 
+  'admin123', 
+  'admin@test.com', 
+  '2020-07-01 20:32:09', 
+  1
+), (
+  3, 
+  'agent', 
+  'agent123', 
+  'agent@agp.com', 
+  '2020-07-09 06:02:48', 
+  0
+) [42102-200]
+2020-07-10 01:53:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DEFAULT[*] CHARSET UTF8"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+default charset UTF8 [42001-200]
+2020-07-10 01:53:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "users" not found; SQL statement:
+insert into "users" (
+  "id",
+  "username",
+  "password",
+  "email",
+  "last_login",
+  "priv"
+)
+values (
+  1, 
+  'hamza', 
+  'hamza;', 
+  'hamza.talaghzi@gmail.com', 
+  '2020-07-01 20:30:17', 
+  1
+), (
+  2, 
+  'admin', 
+  'admin123', 
+  'admin@test.com', 
+  '2020-07-01 20:32:09', 
+  1
+), (
+  3, 
+  'agent', 
+  'agent123', 
+  'agent@agp.com', 
+  '2020-07-09 06:02:48', 
+  0
+) [42102-200]
+2020-07-10 02:16:10 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/dell/IdeaProjects/agp/src/main/database/agp.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:331)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:250)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:228)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:369)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:98)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:73)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:473)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:84)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:689)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at app.util.HibernateConfig.<clinit>(HibernateConfig.java:17)
+	at app.models.Client.getAll(Client.java:107)
+	at app.controllers.Main.getClients(Main.java:278)
+	at app.controllers.Main.initialize(Main.java:95)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2573)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2466)
+	at javafx.fxml/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2435)
+	at app.Main.loadFXML(Main.java:30)
+	at app.controllers.Login$1.run(Login.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/dell/IdeaProjects/agp/src/main/database/agp.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 61 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/dell/IdeaProjects/agp/src/main/database/agp.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 55 more
+2020-07-10 02:16:49 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:331)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:250)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:228)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:369)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:98)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:73)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:473)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:84)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:689)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at app.util.HibernateConfig.<clinit>(HibernateConfig.java:17)
+	at app.models.Client.getAll(Client.java:107)
+	at app.controllers.Main.getClients(Main.java:278)
+	at app.controllers.Main.initialize(Main.java:95)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2573)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2466)
+	at javafx.fxml/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2435)
+	at app.Main.loadFXML(Main.java:30)
+	at app.controllers.Login$1.run(Login.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 51 more
+2020-07-10 02:17:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-10 02:20:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-10 02:33:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-10 02:35:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-10 02:40:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-10 02:44:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-12 20:35:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-12 20:37:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTS" not found; SQL statement:
+select client0_.id as id1_0_0_, city1_.id as id1_5_1_, client0_.address as address2_0_0_, client0_.city as city7_0_0_, client0_.email as email3_0_0_, client0_.full_name as full_nam4_0_0_, client0_.tel as tel5_0_0_, client0_.username as username6_0_0_, city1_.ville as ville2_5_1_ from clients client0_ inner join villes city1_ on client0_.city=city1_.ville [42102-200]
+2020-07-26 22:23:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "USER0_.LASTLOGIN" not found; SQL statement:
+select user0_.id as id1_4_, user0_.lastLogin as lastlogi2_4_, user0_.password as password3_4_, user0_.username as username4_4_ from USERS user0_ where user0_.username=? and user0_.password=? [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.Alias.optimize(Alias.java:52)
+	at org.h2.command.dml.Select.prepare(Select.java:1206)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2085)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2022)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2000)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:951)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:352)
+	at org.hibernate.loader.Loader.doList(Loader.java:2831)
+	at org.hibernate.loader.Loader.doList(Loader.java:2813)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2645)
+	at org.hibernate.loader.Loader.list(Loader.java:2640)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:506)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:219)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1412)
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1565)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1533)
+	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1581)
+	at app.models.User.check(User.java:36)
+	at app.controllers.Login.checkLogin(Login.java:115)
+	at app.controllers.Login$1.run(Login.java:45)
+	at java.base/java.lang.Thread.run(Thread.java:834)
