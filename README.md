@@ -1,10 +1,10 @@
 <p align="center">
-<img src="screenshots/img.png" height="260px" >
+<img src="screenshots/img.png" width="390px" >
 </p>
 
 
 
-# Configuration du système, paramétrage et exécution de l'application
+## Configuration du système, paramétrage et exécution de l'application
 Vous pouvez essayer l'application par vous-même!
 
 pour ce faire,
